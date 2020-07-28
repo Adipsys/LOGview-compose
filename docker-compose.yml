@@ -1,11 +1,10 @@
-version: '3.8'
+version: '2.4'
 
 volumes:
   logview-es_vol01:
 
 services:
  logview-es:
-      build: ./logview-es/
       restart: always
       environment:
          - discovery.type=single-node
@@ -14,7 +13,6 @@ services:
          - logview-es_vol01:/usr/share/elasticsearch/data
 
  logview-ls:
-      build: ./logview-ls/
       image: docker.adipsys.com:5000/logview-ls
       restart: always
       environment:
@@ -27,7 +25,6 @@ services:
       depends_on:
               - "logview-es"
  logview-kb:
-      build: ./logview-kb/
       image: docker.adipsys.com:5000/logview-kb
       restart: always
       environment:
