@@ -1,0 +1,38 @@
+version: '3.8'
+
+volumes:
+  logview-es_vol01:
+
+services:
+ logview-es:
+      build: ./logview-es/
+      restart: always
+      environment:
+         - discovery.type=single-node
+      image: docker.adipsys.com:5000/logview-es
+      volumes:
+         - logview-es_vol01:/usr/share/elasticsearch/data
+
+ logview-ls:
+      build: ./logview-ls/
+      image: docker.adipsys.com:5000/logview-ls
+      restart: always
+      environment:
+         - discovery.type=single-node
+      ports:
+              - 5014:5014/udp
+              - 5015:5015/udp
+              - 5045:5045/udp
+              - 5044:5044
+      depends_on:
+              - "logview-es"
+ logview-kb:
+      build: ./logview-kb/
+      image: docker.adipsys.com:5000/logview-kb
+      restart: always
+      environment:
+        ELASTICSEARCH_HOSTS: http://logview-es:9200/
+      ports:
+              - 5601:5601
+      depends_on:
+              - "logview-es"
