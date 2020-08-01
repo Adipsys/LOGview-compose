@@ -34,6 +34,6 @@ services:
         - ELASTICSEARCH_USERNAME=kibana_system
         - ELASTICSEARCH_PASSWORD=${KIBANA_PASSWORD}
       ports:
-              - 5601:5601
+              - ${WEB_IHM_PORT}:5601
       depends_on:
               - "logview-es"
