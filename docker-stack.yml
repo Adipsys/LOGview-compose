@@ -10,7 +10,7 @@ services:
          - discovery.type=single-node
       deploy:
          placement:
-               max_replicas_per_node: 1
+               #max_replicas_per_node: 1
                constraints:
                    - node.role == manager
       image: docker.adipsys.com:5000/logview-es
@@ -23,9 +23,9 @@ services:
       environment:
          - discovery.type=single-node
          - ELASTICSEARCH_PASSWORD=${ELASTICSEARCH_PASSWORD}
-      deploy:
-         placement:
-               max_replicas_per_node: 1
+      #deploy:
+       #  placement:
+        #       max_replicas_per_node: 1
       ports:
               - 5014:5014/udp
               - 5015:5015/udp
@@ -41,9 +41,9 @@ services:
         - ELASTICSEARCH_HOSTS=http://logview-es:9200/
         - ELASTICSEARCH_USERNAME=kibana_system
         - ELASTICSEARCH_PASSWORD=${KIBANA_PASSWORD}
-      deploy:
-         placement:
-               max_replicas_per_node: 1
+      #deploy:
+       #  placement:
+        #       max_replicas_per_node: 1
       ports:
               - ${WEB_IHM_PORT}:5601
       depends_on:
