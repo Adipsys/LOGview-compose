@@ -50,3 +50,14 @@ services:
               - ${WEB_IHM_PORT}:5601
       depends_on:
               - "logview-es"
+    
+ #logview-mq:
+ #     image: docker.adipsys.com:5000/logview-mq
+ #     restart: always
+ #     environment:
+ #        - MQT_VENUE=${MQT_VENUE}
+ #        - MQT_PASS=${MQT_PASS}
+ #     ports:
+ #             - 8883:8883
+ #     depends_on:
+ #             - "logview-ls"
