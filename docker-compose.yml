@@ -18,6 +18,8 @@ services:
       environment:
          - discovery.type=single-node
          - ELASTICSEARCH_PASSWORD=${ELASTICSEARCH_PASSWORD}
+         - MQT_VENUE=${MQT_VENUE}
+         - MQT_PASS=${MQT_PASS}
       ports:
               - 5014:5014/udp
               - 5015:5015/udp
