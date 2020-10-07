@@ -50,6 +50,15 @@ services:
               - ${WEB_IHM_PORT}:5601
       depends_on:
               - "logview-es"
+              
+ #dnsp-fb:
+ #     image: docker.adipsys.com:5000/logview-fb
+ #     restart: always
+ #     volumes:
+ #             - '/filebeat-input/:/filebeat-input/'
+ #     depends_on:
+ #             - "logview-es"
+ #             - "logview-ls"
     
  #logview-mq:
  #     image: docker.adipsys.com:5000/logview-mq
