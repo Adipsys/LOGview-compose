@@ -16,6 +16,8 @@ services:
       image: docker.adipsys.com:5000/logview-es
       volumes:
          - logview-es_vol01:/usr/share/elasticsearch/data
+         #- /snapshots:/snapshots
+         #- /root/elastic/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
 
  logview-ls:
       image: docker.adipsys.com:5000/logview-ls
