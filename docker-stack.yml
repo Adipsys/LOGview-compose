@@ -31,10 +31,26 @@ services:
        #  placement:
         #       max_replicas_per_node: 1
       ports:
-              - 5014:5014/udp
-              - 5015:5015/udp
-              - 5045:5045/udp
-              - 5044:5044
+              - target: 5014
+                published: 5014
+                protocol: udp
+                mode: host
+              - target: 5015
+                published: 5015
+                protocol: udp
+                mode: host
+              - target: 5045
+                published: 5045
+                protocol: udp
+                mode: host
+              - target: 5044
+                published: 5044
+                protocol: tcp
+                mode: host
+              #- 5014:5014/udp
+              #- 5015:5015/udp
+              #- 5045:5045/udp
+              #- 5044:5044
       depends_on:
               - "logview-es"
 
