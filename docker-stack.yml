@@ -70,12 +70,17 @@ services:
               - ${WEB_IHM_PORT}:5601
       depends_on:
               - "logview-es"
-              
- #dnsp-fb:
+ 
+ #logview-fb-hm:
  #     image: docker.adipsys.com:5000/logview-fb
  #     restart: always
+ #     deploy:
+ #        placement:
+ #              #max_replicas_per_node: 1
+ #              constraints:
+ #                  - node.role == manager
  #     volumes:
- #             - '/filebeat-input/:/filebeat-input/'
+ #             - '/data/logs/hotspotmanager/elastic/:/filebeat-input/'
  #     depends_on:
  #             - "logview-es"
  #             - "logview-ls"
