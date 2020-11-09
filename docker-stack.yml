@@ -8,6 +8,7 @@ services:
       restart: always
       environment:
          - discovery.type=single-node
+      #command: ["elasticsearch", "-Elogger.level=DEBUG"]
       deploy:
          placement:
                #max_replicas_per_node: 1
