@@ -24,6 +24,8 @@ services:
       restart: always
       environment:
          - discovery.type=single-node
+         - xpack.monitoring.elasticsearch.username=elastic
+         - xpack.monitoring.elasticsearch.password=${ELASTICSEARCH_PASSWORD}
          - ELASTICSEARCH_PASSWORD=${ELASTICSEARCH_PASSWORD}
          - MQT_VENUE=${MQT_VENUE}
          - MQT_PASS=${MQT_PASS}
