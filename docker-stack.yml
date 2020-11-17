@@ -24,6 +24,8 @@ services:
       image: docker.adipsys.com:5000/logview-ls
       restart: always
       environment:
+         - LOGVIEW_NAME=${LOGVIEW_NAME}
+         - OPERATOR=${OPERATOR}
          - discovery.type=single-node
          - xpack.monitoring.elasticsearch.username=elastic
          - xpack.monitoring.elasticsearch.password=${ELASTICSEARCH_PASSWORD}
