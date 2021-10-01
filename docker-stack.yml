@@ -15,14 +15,14 @@ services:
                #max_replicas_per_node: 1
                constraints:
                    - node.role == manager
-      image: docker.adipsys.com:5000/logview-es
+      image: docker.adipsys.com:5000/logview-es:${PRODUCT_VERSION}
       volumes:
          - logview-es_vol01:/usr/share/elasticsearch/data
          #- /snapshots:/snapshots
          #- /root/elastic/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
 
  logview-ls:
-      image: docker.adipsys.com:5000/logview-ls
+      image: docker.adipsys.com:5000/logview-ls:${PRODUCT_VERSION}
       restart: always
       environment:
          - LOGVIEW_NAME=${LOGVIEW_NAME}
@@ -61,7 +61,7 @@ services:
               - "logview-es"
 
  logview-kb:
-      image: docker.adipsys.com:5000/logview-kb
+      image: docker.adipsys.com:5000/logview-kb:${PRODUCT_VERSION}
       restart: always
       environment:
         - ELASTICSEARCH_HOSTS=http://logview-es:9200/
@@ -76,7 +76,7 @@ services:
               - "logview-es"
  
  #logview-fb-hm:
- #     image: docker.adipsys.com:5000/logview-fb
+ #     image: docker.adipsys.com:5000/logview-fb:${PRODUCT_VERSION}
  #     restart: always
  #     deploy:
  #        placement:
