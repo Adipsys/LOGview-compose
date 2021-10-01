@@ -67,6 +67,7 @@ services:
         - ELASTICSEARCH_HOSTS=http://logview-es:9200/
         - ELASTICSEARCH_USERNAME=kibana_system
         - ELASTICSEARCH_PASSWORD=${KIBANA_PASSWORD}
+        - SERVER_PUBLICBASEURL=${BASE_URL}
       #deploy:
        #  placement:
         #       max_replicas_per_node: 1
